@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - PolySens</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container text-center py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow p-5">
+                    <h1 class="text-danger mb-4">
+                        {% if error_code %}{{ error_code }}{% else %}Error{% endif %}
+                    </h1>
+                    
+                    <div class="mb-4">
+                        <img src="{{ url_for('static', filename='Images/error.png') }}" 
+                             alt="Error" 
+                             class="img-fluid"
+                             style="max-height: 150px;"
+                             onerror="this.src='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/exclamation-triangle-fill.svg'; this.style.height='100px';">
+                    </div>
+                    
+                    <h2 class="mb-4">Something went wrong</h2>
+                    
+                    <p class="lead mb-4">
+                        {% if error %}
+                            {{ error }}
+                        {% else %}
+                            An unexpected error occurred. Please try again later.
+                        {% endif %}
+                    </p>
+                    
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('login_page') }}" class="btn btn-primary btn-lg">Back to Login</a>
+                        {% if current_user.is_authenticated %}
+                            <a href="{{ url_for('index') }}" class="btn btn-outline-primary">Back to Dashboard</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="bg-light py-4 mt-5">
+            <div class="container">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-md-4 text-center">
+                        <img src="{{ url_for('static', filename='Images/PP_logo_1200x600.webp') }}" alt="Polytech Poznan Logo" class="img-fluid w-75"/>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="{{ url_for('static', filename='Images/POLYTECH.png') }}" alt="Polytech Mons Logo" class="img-fluid w-75"/>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

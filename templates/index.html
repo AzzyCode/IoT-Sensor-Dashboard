@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Real-Time Sensor Data</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+  <style>
+    .chart-container {
+      max-width: 900px;
+      height: 400px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    body.bg-light {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
+    .navbar {
+      margin-bottom: 1.5rem;
+    }
+  </style>
+</head>
+
+<body class="bg-light text-center">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#">🌡️ Sensor Data</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenu principal -->
+  <div class="container">
+    <h1 class="mb-3">📊 Real-Time Sensor Data</h1>
+
+    <!-- Affichage des valeurs des capteurs -->
+    <div class="sensor-display fs-4 mb-3">
+      <span class="me-4 d-block d-md-inline">🌡️ Temperature: <strong id="temperature">--</strong> °C</span>
+      <span class="me-4 d-block d-md-inline">💧 Humidity: <strong id="humidity">--</strong> %</span>
+    </div>
+
+    <!-- Graphique Température & Humidité -->
+    <div class="mb-2">
+      <span id="chart-date-title" class="h5 text-secondary"></span>
+    </div>
+    <div class="chart-container mx-auto">
+      <canvas id="sensorChart_temp_humidity"></canvas>
+    </div>
+  </div>
+
+  <footer class="bg-light py-4 mt-5">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-4 text-center">
+                <img src="{{ url_for('static', filename='Images/PP_logo_1200x600.webp') }}" alt="Polytech Poznan Logo" class="img-fluid w-75"/>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="{{ url_for('static', filename='Images/POLYTECH.png') }}" alt="Polytech Mons Logo" class="img-fluid w-75"/>
+            </div>
+        </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

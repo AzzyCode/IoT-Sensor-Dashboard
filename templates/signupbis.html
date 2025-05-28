@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatal Error</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+        body {
+            background-color: black;
+            color: lime;
+            font-family: 'VT323', monospace;
+            text-align: center;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 4em;
+            animation: glitch 0.5s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 3px 3px 10px lime; }
+            100% { text-shadow: -3px -3px 10px lime; }
+        }
+
+        #msg {
+            font-size: 1.8em;
+            margin: 20px;
+        }
+
+        .contact-link {
+            display: inline-block;
+            font-size: 1.5em;
+            color: lime;
+            text-decoration: none;
+            border: 2px solid lime;
+            padding: 10px 20px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .contact-link:hover {
+            background: lime;
+            color: black;
+            text-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>💀 SYSTEM HACKED 💀</h1>
+    <p id="msg">Your system has been compromised as part of a penetration test.</p>
+    <p>Contact your administrator immediately.</p>
+    <a href="https://youtu.be/dQw4w9WgXcQ" class="contact-link">Contact us here</a>
+
+    <script>
+        setInterval(() => {
+            document.body.style.backgroundColor = document.body.style.backgroundColor === 'black' ? '#222' : 'black';
+        }, 500);
+
+        setTimeout(() => {
+            alert("PRANKED! This was just a penetration test 😆");
+            document.getElementById("msg").innerText = "Relax, everything is under control!";
+        }, 5000);
+    </script>
+</body>
+</html>
